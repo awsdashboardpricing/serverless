@@ -1,0 +1,21 @@
+
+
+service: sends3configpath
+app: sends3configpath-app
+org: leanhhoang28061988
+=
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+
+functions:
+  sendS3Path:
+    handler: handler.sendS3Path
+    memorySize: 512
+    timeout: 10
+  events:
+    - s3:
+      bucket: 'hoang-le-personal-data-bucket'
+      event: s3:ObjectCreated:*
