@@ -1,14 +1,11 @@
 
 
-service: sends3configpath
-app: sends3configpath-app
-org: leanhhoang28061988
-=
+service: 
+  name: sends3configpath
 
 provider:
   name: aws
   runtime: nodejs12.x
-  stage: dev
 
 functions:
   sendS3Path:
@@ -17,5 +14,5 @@ functions:
     timeout: 10
   events:
     - s3:
-      bucket: 'hoang-le-personal-data-bucket'
-      event: s3:ObjectCreated:*
+       bucket: 'hoang-le-personal-data-bucket'
+       event: s3:ObjectCreated:*
